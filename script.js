@@ -1,11 +1,7 @@
 function injectInfo(list) {
-    console.log("fired injectHTML");
     const target = document.querySelector("#info");
     target.innerHTML = "";
-    list.forEach((item, index) => {
-      const str = `<li>${item.name}</li>`;
-      target.innerHTML += str;
-    });
+    target.innerHTML  += list;
   }
 
   function getType(data) {
@@ -25,5 +21,8 @@ async function getData() {
     const data = await response.json();
 
     console.log(data);
-    console.log(getType(data));
+    injectInfo("Pokemon Type: " + getType(data));
+
+
+
 }
