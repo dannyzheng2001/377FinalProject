@@ -4,40 +4,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Poki Wiki</title>
+  <link rel="stylesheet" href="style.css">
 </head> 
 <body>
     <div>
         <h1 style="text-align: center;">Poké Wiki</h1>
     </div>
-    <div class="container" style="text-align: center;">
-        <div class="search box">
-            <form action="https://pokeapi.co/api/v2/pokemon/ditto/"
-            class="box main">
-            <label for="resto">Pokemon Name</label>
-            <input type="text" id="resto" name="resto">
-            <button type="button" class="search_button">Search</button>
+    <div style="text-align: center;">
+        <div>
+            <form>
+                <legend>Pokemon Name</legend>
+                <input type="text" id="pokemonName" placeholder="Pokemon Name" style="width: 10%;">
+                <button type="button" id="getName" onclick="getData()">Search</button>
+                Type:
+                <input type="text" id="resto_filter" name="resto_filter" style="width: 10%;">
+                <button type="button" id="filter">Filter</button>
             </form>
         </div>
-            Type:
-            <input type="text" id="resto_filter" name="resto_filter">
-            <button type="button" id="filter">Filter</button>
         <div>
         </div>
     </div>
     <div>&nbsp;</div>
-    <div style="background: rgb(34, 254, 0);
-                font-size: 20px;
-                float: left;
-                width: 50%;
-                height: 75%;">
-        Pokemon Info
+    <div class="box" style="background: rgb(34, 254, 0); font-size: 20px; float: left; width: 45%; height: 75%; margin-left: 2.5em;">
+        <h3 class="boxer">Pokemon Information</h3>
+        <div id="info"></div>
     </div>
-    <div class="center" style="background: rgb(205, 94, 60);
-                font-size: 20px;
-                float: right;
-                width: 50%;
-                height: 75%;">
-        Image of Pokemon and evolution stages
+    <div class="center box" style="background: rgb(205, 94, 60); font-size: 20px; float: right; width: 45%; height: 75%; margin-right: 2.5em;">
+        <h3 class="boxer">Evolution Stages</h3>
     </div>
+    <script src="./script.js"></script>
 </body>
 
