@@ -8,6 +8,10 @@ function injectInfo(list) {
     });
   }
 
+  function getType(data) {
+    return data['types'][0]['type'].name;
+  }
+
 async function getData() {
     const pokemon = document.getElementById("pokemonName").value;
     console.log('pokemon is:', pokemon);
@@ -21,5 +25,5 @@ async function getData() {
     const data = await response.json();
 
     console.log(data);
-
+    console.log(getType(data));
 }
