@@ -5,6 +5,9 @@ function injectInfo(list) {
   }
 
   function getType(data) {
+    if (data['types'][1]) {
+      return data['types'][0]['type'].name + '/' + data['types'][1]['type'].name;
+    }
     return data['types'][0]['type'].name;
   }
 
@@ -23,6 +26,8 @@ async function getData() {
     console.log(data);
     injectInfo("Pokemon Type: " + getType(data));
 
+    const default_img = data['sprites']['front_default'];
 
+    document.getElementById("dafault_img").src = default_img;
 
 }
