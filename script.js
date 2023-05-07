@@ -23,14 +23,16 @@ function injectInfo(list, id) {
     console.log("fired cut list");
     const range = [...Array(15).keys()];
     return (newArray = range.map((item) => {
-      const index = getRandomIntInclusive(0, data.length - 1);
-      return data[index];
+      const index = getRandomIntInclusive(0, data["moves"].length - 1);
+      console.log("index is: ", index);
+      return data["moves"][index]["move"].name;
     }));
   }
 
 async function getData() {
     const pokemon = document.getElementById("pokemonName").value;
     const shiny = document.querySelector("#shinyFilter");
+    const generateMovesets = document.querySelector("#generateMove");
     console.log('pokemon is:', pokemon);
     const url = new URL("https://pokeapi.co/api/v2/pokemon/" + pokemon);
     console.log("API Url:", url.toString());
@@ -55,5 +57,10 @@ async function getData() {
       }
       document.getElementById("dafault_img").src = default_img;
     })
+
+    generateMovesets.addEventListener("click", (event) => {
+      list = randomMoves(data);
+      injectInfo(list, "moveList");
+    }) 
 
 }
