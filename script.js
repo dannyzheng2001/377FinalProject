@@ -59,8 +59,16 @@ async function getData() {
     })
 
     generateMovesets.addEventListener("click", (event) => {
+      orderedList = document.getElementById("moveList");
+      orderedList.innerHTML = "";
       list = randomMoves(data);
-      injectInfo(list, "moveList");
+      console.log(list);
+      result = list.forEach((item)=>{
+        let li = document.createElement("li");
+        li.innerText = item;
+        orderedList.appendChild(li);
+      })
+
     }) 
 
 }
