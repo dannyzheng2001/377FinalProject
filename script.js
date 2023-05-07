@@ -1,5 +1,5 @@
-function injectInfo(list) {
-    const target = document.querySelector("#info");
+function injectInfo(list, id) {
+    const target = document.querySelector("#" + id);
     target.innerHTML = "";
     target.innerHTML  += list;
   }
@@ -11,6 +11,21 @@ function injectInfo(list) {
       return data['types'][0]['type'].name;
     }
     
+  }
+
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  function randomMoves(data) {
+    console.log("fired cut list");
+    const range = [...Array(15).keys()];
+    return (newArray = range.map((item) => {
+      const index = getRandomIntInclusive(0, data.length - 1);
+      return data[index];
+    }));
   }
 
 async function getData() {
@@ -27,7 +42,7 @@ async function getData() {
     const data = await response.json();
 
     console.log(data);
-    injectInfo("Pokemon Type: " + getType(data));
+    injectInfo("Pokemon Type: " + getType(data), "info");
 
     document.getElementById("dafault_img").src = data['sprites']['front_default'];
 
