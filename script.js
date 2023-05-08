@@ -38,6 +38,7 @@ async function getData() {
     const pokemon = document.getElementById("pokemonName").value;
     const shiny = document.querySelector("#shinyFilter");
     const generateMovesets = document.querySelector("#generateMove");
+    const clearData = document.querySelector("#clear_data");
     console.log('pokemon is:', pokemon);
     const url = new URL("https://pokeapi.co/api/v2/pokemon/" + pokemon);
     console.log("API Url:", url.toString());
