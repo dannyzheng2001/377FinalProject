@@ -27,6 +27,7 @@ function injectInfo(list, id) {
       console.log("index is: ", index);
       return data["moves"][index]["move"].name;
     }));
+
   }
 
 async function getData() {
@@ -42,6 +43,8 @@ async function getData() {
     // console.log(response);
 
     const data = await response.json();
+
+
 
     console.log(data);
     injectInfo("Pokemon Type: " + getType(data), "info");
@@ -70,5 +73,11 @@ async function getData() {
       })
 
     }) 
+
+    clearData.addEventListener("click", (event) =>{
+      console.log('clear browser data');
+        localStorage.clear();
+        console.log('localStorage Check', localStorage.getItem("storedData"))
+    })
 
 }
