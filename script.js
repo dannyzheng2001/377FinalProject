@@ -29,6 +29,10 @@ function injectInfo(list, id) {
     }));
   }
 
+  function toArray(word) {
+    return word.trim().split(",");
+  }
+
 async function getData() {
     const pokemon = document.getElementById("pokemonName").value;
     const shiny = document.querySelector("#shinyFilter");
@@ -67,8 +71,8 @@ async function getData() {
         let li = document.createElement("li");
         li.innerText = item;
         orderedList.appendChild(li);
-      })
+      });
 
-    }) 
+    });
 
 }
