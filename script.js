@@ -37,17 +37,24 @@ function injectInfo(list, id) {
 async function getData() {
     const pokemon = document.getElementById("pokemonName").value;
     const shiny = document.querySelector("#shinyFilter");
-    const generateMovesets = document.querySelector("#generateMove");
-    const clearData = document.querySelector("#clear_data");
+    // const generateMovesets = document.querySelector("#generateMove");
+    // const clearData = document.querySelector("#clear_data");
     console.log('pokemon is:', pokemon);
     const url = new URL("https://pokeapi.co/api/v2/pokemon/" + pokemon);
     console.log("API Url:", url.toString());
+
+    // const storedData = localStorage.getItem('storedData');
+    // let parsedData = JSON.parse(storedData);
 
     const response = await fetch(url);
 
     // console.log(response);
 
     const data = await response.json();
+    localStorage.setItem('storedData', JSON.stringify(data));
+    parsedData = data;
+
+    console.log("this is", parsedData);
 
 
 
@@ -66,23 +73,50 @@ async function getData() {
       document.getElementById("dafault_img").src = default_img;
     })
 
-    generateMovesets.addEventListener("click", (event) => {
-      orderedList = document.getElementById("moveList");
-      orderedList.innerHTML = "";
-      list = randomMoves(data);
-      console.log(list);
-      result = list.forEach((item)=>{
-        let li = document.createElement("li");
-        li.innerText = item;
-        orderedList.appendChild(li);
-      });
+    // generateMovesets.addEventListener("click", (event) => {
+    //   orderedList = document.getElementById("moveList");
+    //   orderedList.innerHTML = "";
+    //   list = randomMoves(parsedData);
+    //   console.log(list);
+    //   result = list.forEach((item)=>{
+    //     let li = document.createElement("li");
+    //     li.innerText = item;
+    //     orderedList.appendChild(li);
+    //   });
 
+    // });
+
+    // clearData.addEventListener("click", (event) =>{
+    //   console.log('clear browser data');
+    //     localStorage.clear();
+    //     console.log('localStorage Check', localStorage.getItem("storedData"))
+    // });
+
+}
+
+async function local() {
+  const generateMovesets = document.querySelector("#generateMove");
+
+  const storedData = localStorage.getItem('storedData');
+  let parsedData = JSON.parse(storedData);
+
+
+  generateMovesets.addEventListener("click", (event) => {
+    orderedList = document.getElementById("moveList");
+    orderedList.innerHTML = "";
+    list = randomMoves(parsedData);
+    console.log(list);
+    result = list.forEach((item)=>{
+      let li = document.createElement("li");
+      li.innerText = item;
+      orderedList.appendChild(li);
     });
 
-    clearData.addEventListener("click", (event) =>{
-      console.log('clear browser data');
-        localStorage.clear();
-        console.log('localStorage Check', localStorage.getItem("storedData"))
-    })
+  });
 
+}
+
+async function clearLocal() {
+  console.log("cleared local storage");
+  localStorage.clear();
 }
