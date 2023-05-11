@@ -57,13 +57,6 @@ form {
 */
 
 
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  flex: 1;
-}
 
 .container {
   margin: 0 20px;
@@ -134,193 +127,26 @@ form {
 }
 
 .left_section {
-  background-color: rgba(22, 193, 59, 0.8);
-  flex: 0 1 auto;
-  margin: 1rem;
-  padding: 1.5rem;
+  background: rgb(196, 44, 44); font-size: 20px; float: left; width: 45%; height: 75%; margin-left: 2.5em;
 }
 
 .right_section {
-  background-color: rgba(18, 21, 215, 0.7);
-  flex: 1 2 auto;
-  margin: 1rem;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-flow: column;
+  background: rgb(31, 91, 202); font-size: 20px; float: right; width: 45%; height: 75%; margin-right: 2.5em;
 }
-
-/*
-  This block is actually dependent on the "container" block having a flex set on it
-  and the "wrapper" block displaying as a flex column with a "vertical height" (vh) of 100.
-  That serves to cram the footer to the bottom of the page.
-*/
-
-.footer {
-  flex-shrink: 0;
-  padding: 1rem;
-  background-color: rgba(139, 2, 0, 0.8);
-  font-size: 1.2rem;
-  font-weight: 600;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-}
-
-.footer a {
-  color: rgb(0, 255, 153);
-  text-decoration: underline;
-}
-
-/*
-  This is an example of a 'pseudoclass'
-  In this instance, it says what to do if a mouse hovers over a link
-  This is pretty desktop-specific, since there's no hover function on touchscreens
-*/
-.footer a:hover {
-  /* Hue, saturation, luminosity, alpha */
-  background-color: hsla(0, 0%, 100%, 0.15);
-  /* red, green, blue, alpha */
-  color: rgb(48, 165, 46);
-  text-decoration: none;
-}
-
-.subtitle {
-  color: rgba(0, 0, 0, 0.8);
-  margin: 0px;
-  margin-bottom: 5px;
-}
-
-
-/* Deploy this with images as direct "children" and the images should pop into shape */
-.grid {
-  display: flex;
-  justify-content: space-evenly;
-  flex-flow: wrap;
-  width: 350px;
-  height: 350px;
-  margin: 0 auto;
-}
-
-.grid img {
-  width: 150px;
-  height: 150px;
-}
-
-
-/* Carousel */
-div.carousel {
-  max-width: 300px;
-  overflow: hidden;
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  margin-bottom: 1rem;
-}
-
-.carousel .slides {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* .carousel_item, */
-.hidden {
-  display: none;
-}
-
-.visible {
-  display: block;
-}
-
-.carousel_item img {
-  /* 
-    Setting width, rather than max-width or min-width,
-    means annoying pop-ins won't happen
-    but it also means you need to format your images to be compatible
-    or they will stretch weird
-    - try a tall one and see what happens
-    - change the height on a fixed image size and see what happens
-    - now make sure that images are _always_ square
-    - ... there's a reason crop tools are popular in image editors
-   */
-  width: 150px; 
-}
-
-.prev,
-.next {
-  border: none;
-  margin: 2px;
-  text-align: center;
-  border-radius: 5px;
-  font-weight: bold;
-  height: 45px;
-  padding: 10px;
-  line-height: 0; /* This centers a button's text! */
-  border: 2px solid rgb(99,99,99); /* shorthand for how to do a border */
-}
-
-.prev:focus,
-.next:focus {
-  margin: 0;
-  color: black;
-  /* Pick a good border colour and check out how it works with your buttons */
-}
-
-.prev:hover,
-.next:hover {
-  color: orange;
-  background-color: purple;
-  /* Pick a good background colour for your hover pseudoclass */
-}
-
-
-/*
-Form Styles
-*/
-
-form input {
-    /* This is a hack to make sure our boxes line up with one another nicely */
-    width: 100%;
-    width: -moz-available;          /* WebKit-based browsers will ignore this. */
-    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    width: fill-available;
-
-    /* here we are setting white space correctly */
-    margin-bottom: 1rem;
-    height: 2rem;
-    border-radius: 4px;
-  }
-
-  form label {
-    width: 100%;
-    width: -moz-available;          /* WebKit-based browsers will ignore this. */
-    width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
-    width: fill-available;
-    align-items: flex-start;
-
-    display: block; /* this turns the label text into a box we can set margins on */
-    margin-bottom: 0.5rem;
-  }
 
 /* How To Write A Media Query For Small Screens */
 
 @media only screen and (max-width: 736px){
     /* Rules in here will only apply when a screen is the correct size */
     /* check it out by using your developer tools to shrink your screen-size */
-    .container {
-      background-color: rgba(204, 8, 162, 0.65);
-      flex-direction: column;
-      align-items: center;
+
+    background-image {
+      background-size: cover;
+      background-repeat: no-repeat;
     }
-    
-    .right_section {
+    .left_section .right_section {
       align-items: flex-start;
+      height: 90vh;
+      width: 90vh;
     }
 }
