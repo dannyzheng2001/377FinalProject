@@ -120,7 +120,7 @@ form {
   border: 2px dashed;
   border-radius: 4px;
 
-  width: fit-content;
+  width: auto;
   height:fit-content;
   padding: 1.5rem;
   margin: 0 auto;
@@ -137,16 +137,15 @@ form {
 /* How To Write A Media Query For Small Screens */
 
 @media only screen and (max-width: 736px){
-    /* Rules in here will only apply when a screen is the correct size */
-    /* check it out by using your developer tools to shrink your screen-size */
-
-    background-image {
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-    .left_section .right_section {
-      align-items: flex-start;
-      height: 90vh;
-      width: 90vh;
-    }
+  /* Rules in here will only apply when a screen is the correct size */
+  /* check it out by using your developer tools to shrink your screen-size */
+  .container {
+    background-color: rgba(255, 0, 0, 0.65);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+.right_section{
+  align-items: flex-start;
+}
 }
